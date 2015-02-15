@@ -12,6 +12,7 @@ public class RandomWorldMenu extends JPanel
     JCheckBox urbanButton;
     JCheckBox lifeButton;
     JCheckBox literacyButton;
+    JTextField wealthSet;
     
    public RandomWorldMenu() {
         super(new BorderLayout());
@@ -51,10 +52,9 @@ public class RandomWorldMenu extends JPanel
         literacyButton.setMnemonic(KeyEvent.VK_F);
         literacyButton.setSelected(false);
         
-        JTextField wealthSet = new JTextField("Wealth");
-        wealthSet.setHorizontalAlignment(JTextField.CENTER);
-        wealthSet.setVisible(true);
-        
+        wealthSet = new JTextField("Wealth");
+        wealthSet.setVisible(false);
+       
         
         //Register a listener for the check boxes.
         wealthButton.addItemListener(this);
@@ -72,7 +72,7 @@ public class RandomWorldMenu extends JPanel
         checkPanel.add(urbanButton);
         checkPanel.add(lifeButton);
         checkPanel.add(literacyButton);
-    
+        checkPanel.add(wealthSet);
  
         add(checkPanel, BorderLayout.LINE_START);
         setBorder(BorderFactory.createEmptyBorder(50,100,50,100));
@@ -81,10 +81,7 @@ public class RandomWorldMenu extends JPanel
    public void itemStateChanged(ItemEvent e){
      Object source = e.getItemSelectable();  
      if (source == wealthButton) {
-           JTextField wealthSet = new JTextField("Wealth");
-        wealthSet.setHorizontalAlignment(JTextField.CENTER);
-        wealthSet.setVisible(true);
-        //myPanel.getContentPane().add(wealthSet);
+         wealthSet.setVisible(true);  
     
         }
     }

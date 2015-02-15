@@ -1,4 +1,4 @@
-package attachments;
+package RandomCountryGen;
  
 import java.awt.*;
 import java.awt.event.*;
@@ -50,7 +50,12 @@ public class RandomWorldMenu extends JPanel
         literacyButton = new JCheckBox("Literacy rate");
         literacyButton.setMnemonic(KeyEvent.VK_F);
         literacyButton.setSelected(false);
- 
+        
+        JTextField wealthSet = new JTextField("Wealth");
+        wealthSet.setHorizontalAlignment(JTextField.CENTER);
+        wealthSet.setVisible(true);
+        
+        
         //Register a listener for the check boxes.
         wealthButton.addItemListener(this);
         populationButton.addItemListener(this);
@@ -76,8 +81,11 @@ public class RandomWorldMenu extends JPanel
    public void itemStateChanged(ItemEvent e){
      Object source = e.getItemSelectable();  
      if (source == wealthButton) {
-          JTextField ws;
-          ws = new JTextField();
+           JTextField wealthSet = new JTextField("Wealth");
+        wealthSet.setHorizontalAlignment(JTextField.CENTER);
+        wealthSet.setVisible(true);
+        //myPanel.getContentPane().add(wealthSet);
+    
         }
     }
     private static void createAndShowGUI() {
@@ -90,6 +98,7 @@ public class RandomWorldMenu extends JPanel
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
  
+       
         //Display the window.
         frame.pack();
         frame.setVisible(true);
