@@ -21,6 +21,7 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
     Overview stats;
     
     JLabel feed = new JLabel("You begin your reign.");
+    JLabel assist = new JLabel("");
 
   public MainScreen(Overview s){
     //MainScreen Constructor
@@ -50,6 +51,7 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
     
     JPanel feedPanel = new JPanel(new GridLayout(0, 1));
     feedPanel.add(feed);
+    feedPanel.add(assist);
     
     add(overPanel, BorderLayout.WEST);
     add(actionPanel, BorderLayout.SOUTH);
@@ -59,8 +61,20 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
   }
   public void actionPerformed(ActionEvent e){
     if(e.getSource() == embargo){
-       
+       stats.embargo();
+       stats.tax();
       }
+    if(e.getSource() == consultAssistant){
+     assist.setText(stats.consAssist(stats.happiness, stats.hunger, stats.crimeRateV));
+     stats.tax();
+    }
+    if (e.getSource() == taxBreak){
+     stats.taxBreak();
+    }
+    if(e.getSource() == holiday){
+     stats.holiday();
+     stats.tax();
+    }
     budget.setText("Budget: " + stats.budget);
     happiness.setText("Happiness: " + stats.happiness);
     crimeRate.setText("Crime: " + stats.crimeRateV);

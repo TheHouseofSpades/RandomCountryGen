@@ -14,21 +14,13 @@ public class Overview{
   hunger = 100-foodSupply;
   taxes = 20;
  }
-  public double tax(int t){
-   if(t>taxes){
-    happiness -= Math.random()*9+1;
-    taxes = t;
-   }
-   else if(t<taxes){
-     happiness += Math.random()*9+1;
-     taxes = t;
-   }
-   return budget += (budget*(t/100)); 
+  public double tax(){
+   return budget += (budget*(taxes/100)); 
  }
  public void taxBreak(){
    happiness += 10;
  }
- public String consAssist(int h, int g, int c){
+ public String consAssist(int h, int g, double c){
    if(h<25){
     return("Your people may revolt soon. You must do everything in your power to make them happy."); 
    }
@@ -58,6 +50,10 @@ public class Overview{
   happiness += (int)Math.random()*14+1; 
   literacyV += Math.random()*19+1;
   budget -= 200;
+ }
+ public void holiday(){
+  happiness += 10;
+  budget -= 50;
  }
  public void strPolFor(){
    crimeRateV -= (int)Math.random()*19+1;
