@@ -18,6 +18,9 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
     JButton consultAssistant = new JButton("Consult an Assistant");
     JButton embargo = new JButton("Create Embargo");
     JButton begin = new JButton("Begin");
+    JButton investEdu = new JButton("Invest In Education");
+    JButton polStrong = new JButton("Strengthen the Police Force");
+    JButton subAg = new JButton("Subsidize Agriculture.");
     Overview stats;
     
     JLabel feed = new JLabel("You begin your reign.");
@@ -43,12 +46,17 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
     actionPanel.add(consultAssistant);
     actionPanel.add(embargo);
     actionPanel.add(begin);
+    actionPanel.add(investEdu);
+    actionPanel.add(polStrong);
+    actionPanel.add(subAg);
     begin.addActionListener(this);
     embargo.addActionListener(this);
     consultAssistant.addActionListener(this);
     taxBreak.addActionListener(this);
     holiday.addActionListener(this);
-    
+    investEdu.addActionListener(this);
+    polStrong.addActionListener(this);
+    subAg.addActionListener(this);
     JPanel feedPanel = new JPanel(new GridLayout(0, 1));
     feedPanel.add(feed);
     feedPanel.add(assist);
@@ -74,6 +82,16 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
     if(e.getSource() == holiday){
      stats.holiday();
      stats.tax();
+    }
+    if(e.getSource() == polStrong){
+     stats.strPolFor();
+     stats.tax();
+    }
+    if(e.getSource() == investEdu){
+     stats.investEdu(); 
+    }
+    if(e.getSource() == subAg){
+     stats.investEdu(); 
     }
     budget.setText("Budget: " + stats.budget);
     happiness.setText("Happiness: " + stats.happiness);

@@ -42,7 +42,7 @@ public class RandomWorld{
   public double makeLiteracy(String g, double w){
    int f = findGovNum(g);
    double d = ((w/16768100)*100)/2;
-   return d + d*(f/10);
+   return d + d*(f/10)*15;
   }
   public double makeCriRate(double w, double l){
     double d = (w/16768100)/1.5;
