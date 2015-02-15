@@ -49,11 +49,20 @@ public class Overview{
    }
    return ("");
  }
- public void embargo(int h, int b){
-  h -= Math.random()*19 + 1; 
-  b -= Math.random()*99 + 1;
+ public void embargo(){
+  happiness -= Math.random()*14 + 1; 
+  budget -= 50;
+  crimeRateV += Math.random()*4;
  }
- 
+ public void investEdu(){
+  happiness += (int)Math.random()*14+1; 
+  literacyV += Math.random()*19+1;
+  budget -= 200;
+ }
+ public void strPolFor(){
+   crimeRateV -= (int)Math.random()*19+1;
+   budget -= 100;
+ }
  
 }
 
