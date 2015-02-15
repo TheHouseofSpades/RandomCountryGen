@@ -7,6 +7,7 @@ import javax.swing.*;
 
 public class RandomWorldMenu extends JPanel
                           implements ItemListener, ActionListener {
+    Overview stats;
     String govtName = "";
     Attributes wealth = new Attributes("Wealth");
     Attributes population = new Attributes("Population");
@@ -51,10 +52,30 @@ public class RandomWorldMenu extends JPanel
     
    }
     public void actionPerformed(ActionEvent e){
-        confirm.setVisible(false);
+      stats = calc();
+    }
+    
+    public Overview calc(){
+      confirm.setVisible(false);
         wealth.getInput();
         population.getInput();
         govtName = (String)(government.getItemAt(government.getSelectedIndex()));
+        RandomWorld calculations = new RandomWorld();
+        //Placeholder variables
+        double wealthV = calculations.makeWealth(govtName, wealth.value);
+        int popV = calculations.makePop(govtName, population.value);
+        double literacyV = calculations.makeLiteracy(govtName, wealthV);
+        double crimeRateV = calculations.makeCriRate(wealthV, literacyV);
+        double techV = calculations.makeTech(wealthV, literacyV);
+        double lifeExpectancyV = calculations.makeLifExpec(techV, crimeRateV);
+        int foodSupplyV = calculations.makeFoSupp(wealthV);
+        double budgetV = calculations.makeBudget(govtName);
+        
+        //Overview Variable
+        Overview stats = new Overview(crimeRateV, literacyV, popV, foodSupplyV, wealthV);
+        stats.budget = budgetV;
+        
+        return stats;
     }
     
     private static void createAndShowGUI() {
@@ -73,13 +94,15 @@ public class RandomWorldMenu extends JPanel
         frame.setVisible(true);
     }
  
-    public static void main(String[] args) {
+    public Overview main(String[] args) {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();
+               
             }
         });
+        return stats;
     }
 }

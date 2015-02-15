@@ -7,6 +7,13 @@ import java.util.*;
 import java.lang.*;
 
 class RandomWorldRunner{
-
+  public static void main(String args[]){
+    Overview view;
+    RandomWorldMenu rwm = new RandomWorldMenu();
+    String pbj[] = null;
+    view = rwm.main(pbj);
+    if(view != null) System.out.println("SUCCESS");
+    else System.out.println("FAILURE");
+  }
 }
   
