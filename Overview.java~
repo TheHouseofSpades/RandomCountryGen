@@ -1,0 +1,4 @@
+public class Overview{
+ double budget = 0, crimeRate = 0, literacy = 0;
+ int happiness = 0, hunger = 0, poplation = 0;
+}

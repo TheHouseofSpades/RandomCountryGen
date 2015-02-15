@@ -1,3 +1,4 @@
+package RandomCountryGen;
 public class RandomWorld{
   int population = 0, technology = 0, lifeExpectancy = 0, foodSupply = 0;
   double literacy = 0, crimeRate = 0, wealth = 0; 
