@@ -1,0 +1,3 @@
+public class RandomWorldMenu{
+  menu = new JMenu("Random World Generator");
+}

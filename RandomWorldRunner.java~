@@ -1,0 +1,32 @@
+import java.io.*;
+import static java.lang.System.*;
+import java.util.Scanner;
+import java.lang.Math;
+import java.util.*;
+
+class RandomWorldRunner{
+  
+  public static void main (String str[]) throws IOException {
+    Scanner scan = new Scanner(System.in);
+    int countries=0, wealth = 0, population = 0, size = 0, water = 0, urban = 0, life = 0, literacy = 0;
+    String check = "";
+    ArrayList <RandomWorld> theCountries = new ArrayList <RandomWorld>();
+    System.out.println("Welcome to the random world generator! This generator will output as many countries as you would like, with various parameters. These can then be used to create a world.");
+    System.out.println("How many countries would you like in your world?");
+    countries = scan.nextInt();
+    scan.nextInt();
+    for(int i = 0; i<countries; i++){ 
+     while(true){
+      System.out.println("For country " + i + " would you like to keep any parameters constant? (c to skip to next country");
+      check = scan.nextLine();
+      if (check.equals("c")) break;
+      System.out.println("Parameters: (w)ealth, (p)opulation, (s)ize, (g)overnment, c(l)imate, (w)ater percentage, (n)atural resources, (u)rban percentage, l(i)fe expectancy, li(t)eracy rate, (t)echnology. ");
+      check = scan.nextLine();
+      if(check.equals("w")){
+      theCountries(0)
+      }
+      }
+    }
+  }
+  
+}
