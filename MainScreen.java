@@ -18,6 +18,7 @@ public class MainScreen extends JPanel implements ItemListener {
     JButton taxBreak = new JButton("Tax Break");
     JButton consultAssistant = new JButton("Consult an Assistant");
     JButton embargo = new JButton("Create Embargo");
+    Overview stats;
     
     JLabel feed = new JLabel("You begin your reign.");
   public MainScreen(){
@@ -26,6 +27,18 @@ public class MainScreen extends JPanel implements ItemListener {
     RandomWorldMenu rwm = new RandomWorldMenu();
     String args[] = null;
     rwm.main(args);
+    
+    RandomWorld calculations = new RandomWorld();
+    //Placeholder variables
+    double wealthV = calculations.makeWealth(rwm.govtName, rwm.wealth.value);
+    int popV = calculations.makePop(rwm.govtName, rwm.population.value);
+    double literacyV = calculations.makeLiteracy(rwm.govtName, wealthV);
+    double crimeRateV = calculations.makeCriRate(wealthV, literacyV);
+    double techV = calculations.makeTech(wealthV, literacyV);
+    double lifeExpectancyV = calculations.makeLifExpec(techV, crimeRateV);
+    int foodSupplyV = calculations.makeFoSupp(wealthV);
+    double budgetV = calculations.makeBudget(rwm.govtName);
+    
     //Declare Panels
     JPanel overPanel = new JPanel(new GridLayout(0, 1));
     overPanel.add(budget);

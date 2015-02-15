@@ -49,15 +49,15 @@ public class RandomWorld{
     d = 40 - (40*d);
     return d - (d*(l/100));
   }
-  public int makeTech(int w, double l){
+  public double makeTech(double w, double l){
    double d = (w/16768100)*5;
-   return (int)(d + (l/20));
+   return (d + (l/20));
   }
-  public int makeLifExpec(int t, double c){
+  public double makeLifExpec(double t, double c){
    double d = ((t/10)*100)-12; 
-   return (int)(d-c/10);
+   return (d-c/10);
   }
-  public int makeFoSupp(int w){
+  public int makeFoSupp(double w){
    return (int)((w/16768100)*100); 
   }
   public double makeBudget(String g){
