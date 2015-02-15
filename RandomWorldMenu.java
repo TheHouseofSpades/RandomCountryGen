@@ -53,10 +53,14 @@ public class RandomWorldMenu extends JPanel
    }
     public void actionPerformed(ActionEvent e){
       stats = calc();
+      String lkj[] = null;
+      MainScreen ms = new MainScreen(stats);
+       System.out.println(stats.budget + " " + stats.crimeRateV + " " + stats.happiness + " " + stats.hunger + " " + stats.populationV + " " + stats.taxes);
+      ms.main(lkj, stats);
     }
     
     public Overview calc(){
-      confirm.setVisible(false);
+        confirm.setVisible(false);
         wealth.getInput();
         population.getInput();
         govtName = (String)(government.getItemAt(government.getSelectedIndex()));
@@ -75,6 +79,7 @@ public class RandomWorldMenu extends JPanel
         Overview stats = new Overview(crimeRateV, literacyV, popV, foodSupplyV, wealthV);
         stats.budget = budgetV;
         
+        System.out.println(stats.budget + " " + stats.crimeRateV + " " + stats.happiness + " " + stats.hunger + " " + stats.populationV + " " + stats.taxes);
         return stats;
     }
     
@@ -94,15 +99,13 @@ public class RandomWorldMenu extends JPanel
         frame.setVisible(true);
     }
  
-    public Overview main(String[] args) {
+    public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();
-               
             }
         });
-        return stats;
     }
 }

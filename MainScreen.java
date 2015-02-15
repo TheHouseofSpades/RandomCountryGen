@@ -5,16 +5,6 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class MainScreen extends JPanel implements ItemListener, ActionListener {
-    //Overview stats = new Overview();
-    double wealthV;
-    int popV;
-    double literacyV;
-    double crimeRateV;
-    double techV;
-    double lifeExpectancyV;
-    int foodSupplyV;
-    double budgetV;
-    
     int x = 10;
     JLabel budget = new JLabel("Budget ");
     JLabel crimeRate = new JLabel("Crime Rate ");
@@ -31,29 +21,13 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
     Overview stats;
     
     JLabel feed = new JLabel("You begin your reign.");
-  public MainScreen(){
+
+  public MainScreen(Overview s){
     //MainScreen Constructor
     super(new BorderLayout());
-    RandomWorldMenu rwm = new RandomWorldMenu();
-    String args[] = null;
-    rwm.main(args);
-    
-    RandomWorld calculations = new RandomWorld();
-    
-    //Placeholder variables
-    double wealthV = calculations.makeWealth(rwm.govtName, rwm.wealth.value);
-    int popV = calculations.makePop(rwm.govtName, rwm.population.value);
-    double literacyV = calculations.makeLiteracy(rwm.govtName, wealthV);
-    double crimeRateV = calculations.makeCriRate(wealthV, literacyV);
-    double techV = calculations.makeTech(wealthV, literacyV);
-    double lifeExpectancyV = calculations.makeLifExpec(techV, crimeRateV);
-    int foodSupplyV = calculations.makeFoSupp(wealthV);
-    double budgetV = calculations.makeBudget(rwm.govtName);
-    
-    //Overview Variable
-    stats = new Overview(crimeRateV, literacyV, popV, foodSupplyV, wealthV);
-    stats.budget = budgetV;
-    
+    stats = s;
+     System.out.println(s.budget + " " + s.crimeRateV + " " + s.happiness + " " + s.hunger + " " + s.populationV + " " + s.taxes);
+
     //Declare Panels
     JPanel overPanel = new JPanel(new GridLayout(0, 1));
     overPanel.add(budget);
@@ -82,21 +56,22 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
     add(feedPanel, BorderLayout.LINE_END);
   }
   public void actionPerformed(ActionEvent e){
-    budget.setText("Budget: " + stats.budget);
+    if(stats.budget > 0) budget.setText("Budget: " + stats.budget);
+    else budget.setText("Budget: ");
   }
   public void itemStateChanged(ItemEvent e){
     //...
    
   }
   
-  private static void createAndShowGUI() {
+  private static void createAndShowGUI(Overview stats) {
     //...
     //Create and set up the window.
         JFrame frame = new JFrame("MainScreen");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
         //Create and set up the content pane.
-        JComponent newContentPane = new MainScreen();
+        JComponent newContentPane = new MainScreen(stats);
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
  
@@ -106,11 +81,11 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
         frame.setVisible(true);
   }
   
-  public static void main(String[] args){
+  public static void main(String[] args, Overview stats){
    //...
    javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                createAndShowGUI();
+                createAndShowGUI(stats);
             }
         });
     }
