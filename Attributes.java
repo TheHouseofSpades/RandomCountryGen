@@ -1,5 +1,6 @@
 package RandomCountryGen;
  
+import java.lang.Integer;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -7,6 +8,7 @@ import javax.swing.*;
 public class Attributes implements ItemListener{
   JCheckBox cBox;
   JTextField tBox;
+  int value;
   Attributes(String name){
     cBox = new JCheckBox(name);
     cBox.setMnemonic(KeyEvent.VK_W);
@@ -20,4 +22,7 @@ public class Attributes implements ItemListener{
          this.tBox.setVisible(true);
     }
     }
+  public void getInput(){
+    this.value = Integer.parseInt(tBox.getText());
+  }
 }
