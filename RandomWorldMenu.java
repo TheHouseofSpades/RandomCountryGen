@@ -13,6 +13,11 @@ public class RandomWorldMenu extends JPanel
     JCheckBox lifeButton;
     JCheckBox literacyButton;
     JTextField wealthSet;
+    JTextField populationSet;
+    JTextField waterSet;
+    JTextField urbanSet;
+    JTextField lifeSet;
+    JTextField literacySet;
     
    public RandomWorldMenu() {
         super(new BorderLayout());
@@ -54,6 +59,16 @@ public class RandomWorldMenu extends JPanel
         
         wealthSet = new JTextField("Wealth");
         wealthSet.setVisible(false);
+         populationSet = new JTextField("Population");
+        populationSet.setVisible(false);
+         waterSet = new JTextField("Water");
+        waterSet.setVisible(false);
+         urbanSet = new JTextField("Urban");
+        urbanSet.setVisible(false);
+         lifeSet = new JTextField("Life");
+        lifeSet.setVisible(false);
+         literacySet = new JTextField("Literacy");
+        literacySet.setVisible(false);
        
         
         //Register a listener for the check boxes.
@@ -72,8 +87,16 @@ public class RandomWorldMenu extends JPanel
         checkPanel.add(urbanButton);
         checkPanel.add(lifeButton);
         checkPanel.add(literacyButton);
-        checkPanel.add(wealthSet);
+        JPanel fieldPanel = new JPanel(new GridLayout(0, 2));
+        fieldPanel.add(wealthSet);
+        fieldPanel.add(populationSet);
+        fieldPanel.add(waterSet);
+        fieldPanel.add(urbanSet);
+        fieldPanel.add(lifeSet);
+        fieldPanel.add(literacySet);
+        
  
+        add(fieldPanel, BorderLayout.LINE_START);
         add(checkPanel, BorderLayout.LINE_START);
         setBorder(BorderFactory.createEmptyBorder(50,100,50,100));
     }
@@ -82,8 +105,8 @@ public class RandomWorldMenu extends JPanel
      Object source = e.getItemSelectable();  
      if (source == wealthButton) {
          wealthSet.setVisible(true);  
-    
-        }
+    }
+     else wealthSet.setVisible(false);
     }
     private static void createAndShowGUI() {
         //Create and set up the window.
