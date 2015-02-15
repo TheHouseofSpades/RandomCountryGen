@@ -91,7 +91,7 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
      stats.investEdu(); 
     }
     if(e.getSource() == subAg){
-     stats.investEdu(); 
+     stats.subAgr(); 
     }
     budget.setText("Budget: " + stats.budget);
     happiness.setText("Happiness: " + stats.happiness);
