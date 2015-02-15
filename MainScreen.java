@@ -52,6 +52,7 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
     
     //Overview Variable
     stats = new Overview(crimeRateV, literacyV, popV, foodSupplyV, wealthV);
+    stats.budget = budgetV;
     
     //Declare Panels
     JPanel overPanel = new JPanel(new GridLayout(0, 1));
@@ -81,7 +82,7 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
     add(feedPanel, BorderLayout.LINE_END);
   }
   public void actionPerformed(ActionEvent e){
-    budget.setText("Pie");
+    budget.setText("Budget: " + stats.budget);
   }
   public void itemStateChanged(ItemEvent e){
     //...
