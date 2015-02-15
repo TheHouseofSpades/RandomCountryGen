@@ -51,13 +51,20 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
     JPanel feedPanel = new JPanel(new GridLayout(0, 1));
     feedPanel.add(feed);
     
-    add(overPanel, BorderLayout.LINE_START);
-    add(actionPanel, BorderLayout.PAGE_END);
-    add(feedPanel, BorderLayout.LINE_END);
+    add(overPanel, BorderLayout.WEST);
+    add(actionPanel, BorderLayout.SOUTH);
+    add(feedPanel, BorderLayout.EAST);
+    
+    setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
   }
   public void actionPerformed(ActionEvent e){
-    if(stats.budget > 0) budget.setText("Budget: " + stats.budget);
-    else budget.setText("Budget: ");
+    budget.setText("Budget: " + stats.budget);
+    happiness.setText("Happiness: " + stats.happiness);
+    crimeRate.setText("Crime: " + stats.crimeRateV);
+    hunger.setText("Hunger: " + stats.hunger);
+    literacy.setText("Literacy: " + stats.literacyV);
+    population.setText("Population: " + stats.populationV);
+  
   }
   public void itemStateChanged(ItemEvent e){
     //...
@@ -74,7 +81,7 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
         JComponent newContentPane = new MainScreen(stats);
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
- 
+
        
         //Display the window.
         frame.pack();
