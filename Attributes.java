@@ -6,15 +6,12 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Attributes implements ItemListener{
-  JCheckBox cBox;
+  JLabel cBox;
   JTextField tBox;
   int value;
   Attributes(String name){
-    cBox = new JCheckBox(name);
-    cBox.setMnemonic(KeyEvent.VK_W);
-    cBox.addItemListener(this);
+    cBox = new JLabel(name);
     tBox = new JTextField(name);
-    tBox.setVisible(false);
   }
   public void itemStateChanged(ItemEvent e){
      Object source = e.getItemSelectable();  

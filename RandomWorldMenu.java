@@ -8,44 +8,36 @@ public class RandomWorldMenu extends JPanel
                           implements ItemListener {
     Attributes wealth = new Attributes("Wealth");
     Attributes population = new Attributes("Population");
-    Attributes water = new Attributes("Water");
-    Attributes urban = new Attributes("Urban");
-    Attributes life = new Attributes("Life");
-    Attributes literacy = new Attributes("Literacy");
+    String[] govts = {"Anarchy", "Imperialist", "Communist", "Feudalism", "Monarchy", "Republic", "Democracy"};
+    JComboBox government = new JComboBox(govts);
     
    public RandomWorldMenu() {
         super(new BorderLayout());
          JLabel lab1 = new JLabel("Label");
          setLayout(new FlowLayout()); 
          add(lab1 = new JLabel("Welcome to the Random Country Generator."));
-         lab1.setVerticalAlignment(SwingConstants.TOP);
+         lab1.setVerticalAlignment(0);
          lab1.setHorizontalAlignment(SwingConstants.CENTER);
          JLabel lab2 = new JLabel("LabelTwo");
          setLayout(new FlowLayout()); 
-         add(lab2 = new JLabel("Select any parameters you wish to input."));
+         add(lab2 = new JLabel("Scale your population and wealth from 1-10!"));
          lab2.setVerticalAlignment(0);
          lab2.setHorizontalAlignment(SwingConstants.CENTER);
 
         //Put the check boxes in a column in a panel
+        JPanel comboPanel = new JPanel(new GridLayout(0, 1));
+        comboPanel.add(government);
         JPanel checkPanel = new JPanel(new GridLayout(0, 1));
         checkPanel.add(wealth.cBox);
         checkPanel.add(population.cBox);
-        checkPanel.add(water.cBox);
-        checkPanel.add(urban.cBox);
-        checkPanel.add(life.cBox);
-        checkPanel.add(literacy.cBox);
         JPanel fieldPanel = new JPanel(new GridLayout(0, 2));
         fieldPanel.add(wealth.tBox);
         fieldPanel.add(population.tBox);
-        fieldPanel.add(water.tBox);
-        fieldPanel.add(urban.tBox);
-        fieldPanel.add(life.tBox);
-        fieldPanel.add(literacy.tBox);
         
- 
+        add(comboPanel, BorderLayout.LINE_START);
         add(fieldPanel, BorderLayout.LINE_START);
         add(checkPanel, BorderLayout.LINE_START);
-        setBorder(BorderFactory.createEmptyBorder(50,100,50,100));
+        setBorder(BorderFactory.createEmptyBorder(250,100,250,100));
     }
     public void itemStateChanged(ItemEvent e){
       
