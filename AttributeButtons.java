@@ -4,13 +4,20 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-class AttributeButtons {
+public class AttributeButtons implements ItemListener{
   JCheckBox cBox;
   JTextField tBox;
   AttributeButtons(String name){
     cBox = new JCheckBox(name);
+    cBox.setMnemonic(KeyEvent.VK_W);
+    cBox.addItemListener(this);
     tBox = new JTextField(name);
     tBox.setVisible(false);
-    tBox.addItemListener(this);
   }
+  public void itemStateChanged(ItemEvent e){
+     Object source = e.getItemSelectable();  
+     if (source == this.cBox) {
+         this.tBox.setVisible(true);
+    }
+    }
 }

@@ -6,18 +6,12 @@ import javax.swing.*;
 
 public class RandomWorldMenu extends JPanel
                           implements ItemListener {
-    JCheckBox wealthButton;
-    JCheckBox populationButton;
-    JCheckBox waterButton;
-    JCheckBox urbanButton;
-    JCheckBox lifeButton;
-    JCheckBox literacyButton;
-    JTextField wealthSet;
-    JTextField populationSet;
-    JTextField waterSet;
-    JTextField urbanSet;
-    JTextField lifeSet;
-    JTextField literacySet;
+    AttributeButtons wealth = new AttributeButtons("Wealth");
+    AttributeButtons population = new AttributeButtons("Population");
+    AttributeButtons water = new AttributeButtons("Water");
+    AttributeButtons urban = new AttributeButtons("Urban");
+    AttributeButtons life = new AttributeButtons("Life");
+    AttributeButtons literacy = new AttributeButtons("Literacy");
     
    public RandomWorldMenu() {
         super(new BorderLayout());
@@ -30,83 +24,31 @@ public class RandomWorldMenu extends JPanel
          setLayout(new FlowLayout()); 
          add(lab2 = new JLabel("Select any parameters you wish to input."));
          lab2.setVerticalAlignment(0);
-         //lab2.setVerticalAlignment(SwingConstants.TOP);
          lab2.setHorizontalAlignment(SwingConstants.CENTER);
-        //Create the check boxes.
-        wealthButton = new JCheckBox("Wealth");
-        wealthButton.setMnemonic(KeyEvent.VK_W);
-        wealthButton.setSelected(false);
-        
-        populationButton = new JCheckBox("Population");
-        populationButton.setMnemonic(KeyEvent.VK_P);
-        populationButton.setSelected(false);
-        
-        waterButton = new JCheckBox("Water percentage");
-        waterButton.setMnemonic(KeyEvent.VK_R);
-        waterButton.setSelected(false);
-        
-        urbanButton = new JCheckBox("Urban percentage");
-        urbanButton.setMnemonic(KeyEvent.VK_U);
-        urbanButton.setSelected(false);
-        
-        lifeButton = new JCheckBox("Life expectancy");
-        lifeButton.setMnemonic(KeyEvent.VK_L);
-        lifeButton.setSelected(false);
-        
-        literacyButton = new JCheckBox("Literacy rate");
-        literacyButton.setMnemonic(KeyEvent.VK_F);
-        literacyButton.setSelected(false);
-        
-        wealthSet = new JTextField("Wealth");
-        wealthSet.setVisible(false);
-         populationSet = new JTextField("Population");
-        populationSet.setVisible(false);
-         waterSet = new JTextField("Water");
-        waterSet.setVisible(false);
-         urbanSet = new JTextField("Urban");
-        urbanSet.setVisible(false);
-         lifeSet = new JTextField("Life");
-        lifeSet.setVisible(false);
-         literacySet = new JTextField("Literacy");
-        literacySet.setVisible(false);
-       
-        
-        //Register a listener for the check boxes.
-        wealthButton.addItemListener(this);
-        populationButton.addItemListener(this);
-        waterButton.addItemListener(this);
-        urbanButton.addItemListener(this);
-        lifeButton.addItemListener(this);
-        literacyButton.addItemListener(this);
- 
+
         //Put the check boxes in a column in a panel
         JPanel checkPanel = new JPanel(new GridLayout(0, 1));
-        checkPanel.add(wealthButton);
-        checkPanel.add(populationButton);
-        checkPanel.add(waterButton);
-        checkPanel.add(urbanButton);
-        checkPanel.add(lifeButton);
-        checkPanel.add(literacyButton);
+        checkPanel.add(wealth.cBox);
+        checkPanel.add(population.cBox);
+        checkPanel.add(water.cBox);
+        checkPanel.add(urban.cBox);
+        checkPanel.add(life.cBox);
+        checkPanel.add(literacy.cBox);
         JPanel fieldPanel = new JPanel(new GridLayout(0, 2));
-        fieldPanel.add(wealthSet);
-        fieldPanel.add(populationSet);
-        fieldPanel.add(waterSet);
-        fieldPanel.add(urbanSet);
-        fieldPanel.add(lifeSet);
-        fieldPanel.add(literacySet);
+        fieldPanel.add(wealth.tBox);
+        fieldPanel.add(population.tBox);
+        fieldPanel.add(water.tBox);
+        fieldPanel.add(urban.tBox);
+        fieldPanel.add(life.tBox);
+        fieldPanel.add(literacy.tBox);
         
  
         add(fieldPanel, BorderLayout.LINE_START);
         add(checkPanel, BorderLayout.LINE_START);
         setBorder(BorderFactory.createEmptyBorder(50,100,50,100));
     }
- 
-   public void itemStateChanged(ItemEvent e){
-     Object source = e.getItemSelectable();  
-     if (source == wealthButton) {
-         wealthSet.setVisible(true);  
-    }
-     else wealthSet.setVisible(false);
+    public void itemStateChanged(ItemEvent e){
+      
     }
     private static void createAndShowGUI() {
         //Create and set up the window.
