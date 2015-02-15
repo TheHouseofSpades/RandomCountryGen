@@ -33,13 +33,25 @@ public class Overview{
    happiness += 10;
  }
  public String consAssist(int h, int g, int c){
-   if(h<40){
-    return ("Your people are discontent with your service. Try decreasing their financial burden, or giving them a bit of a respite."); 
-   }
    if(h<25){
     return("Your people may revolt soon. You must do everything in your power to make them happy."); 
    }
-   return "";
+   else if(h<40){
+    return ("Your people are discontent with your service. Try decreasing their financial burden, or giving them a bit of a respite."); 
+   }
+   else if(g>90){
+     return("Your people are starving, you must increase the supply of food!");
+   }
+   else if(g>50){
+    return("Your people are hungry, find a way to feed them."); 
+   }
+   else if(c>85){
+   return ("There is looting and murdering in the streets! You must put a stop to this!");
+   }
+   else if(c>50){
+    return("There are many criminals about! You must lower the rate of crime!"); 
+   }
+   return ("");
  }
  
  
