@@ -6,6 +6,15 @@ import javax.swing.*;
 
 public class MainScreen extends JPanel implements ItemListener {
     //Overview stats = new Overview();
+    double wealthV;
+    int popV;
+    double literacyV;
+    double crimeRateV;
+    double techV;
+    double lifeExpectancyV;
+    int foodSupplyV;
+    double budgetV;
+    
     int x = 10;
     JLabel budget = new JLabel("Budget ");
     JLabel crimeRate = new JLabel("Crime Rate ");
@@ -29,6 +38,7 @@ public class MainScreen extends JPanel implements ItemListener {
     rwm.main(args);
     
     RandomWorld calculations = new RandomWorld();
+    
     //Placeholder variables
     double wealthV = calculations.makeWealth(rwm.govtName, rwm.wealth.value);
     int popV = calculations.makePop(rwm.govtName, rwm.population.value);
@@ -38,6 +48,9 @@ public class MainScreen extends JPanel implements ItemListener {
     double lifeExpectancyV = calculations.makeLifExpec(techV, crimeRateV);
     int foodSupplyV = calculations.makeFoSupp(wealthV);
     double budgetV = calculations.makeBudget(rwm.govtName);
+    
+    //Overview Variable
+    stats = new Overview(crimeRateV, literacyV, popV, foodSupplyV, wealthV);
     
     //Declare Panels
     JPanel overPanel = new JPanel(new GridLayout(0, 1));
@@ -63,7 +76,7 @@ public class MainScreen extends JPanel implements ItemListener {
   
   public void itemStateChanged(ItemEvent e){
     //...
-    
+   
   }
   
   private static void createAndShowGUI() {
