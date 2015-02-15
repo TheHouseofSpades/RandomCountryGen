@@ -7,7 +7,7 @@ import javax.swing.*;
 public class MainScreen extends JPanel implements ItemListener {
     //Overview stats = new Overview();
     int x = 10;
-    JLabel budget = new JLabel("Budget: " + x);
+    JLabel budget = new JLabel("Budget ");
     JLabel crimeRate = new JLabel("Crime Rate ");
     JLabel literacy = new JLabel("Literacy ");
     JLabel happiness = new JLabel("Happiness ");
@@ -23,7 +23,9 @@ public class MainScreen extends JPanel implements ItemListener {
   public MainScreen(){
     //MainScreen Constructor
     super(new BorderLayout());
-    
+    RandomWorldMenu rwm = new RandomWorldMenu();
+    String args[] = null;
+    rwm.main(args);
     //Declare Panels
     JPanel overPanel = new JPanel(new GridLayout(0, 1));
     overPanel.add(budget);

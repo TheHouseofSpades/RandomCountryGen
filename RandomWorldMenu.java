@@ -49,7 +49,7 @@ public class RandomWorldMenu extends JPanel
     public void itemStateChanged(ItemEvent e){
       Object source = e.getItemSelectable();
       if (source == confirm){
-       wealth.getInput();
+        wealth.getInput();
         population.getInput();
         govtName = (String)(government.getItemAt(government.getSelectedIndex()));
       }
