@@ -4,8 +4,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+
 public class RandomWorldMenu extends JPanel
                           implements ItemListener {
+    String govtName = "";
     Attributes wealth = new Attributes("Wealth");
     Attributes population = new Attributes("Population");
     String[] govts = {"Anarchy", "Imperialist", "Communist", "Feudalism", "Monarchy", "Republic", "Democracy"};
@@ -45,7 +47,12 @@ public class RandomWorldMenu extends JPanel
         setBorder(BorderFactory.createEmptyBorder(250,100,250,100));
     }
     public void itemStateChanged(ItemEvent e){
-      
+      Object source = e.getItemSelectable();
+      if (source == confirm){
+       wealth.getInput();
+        population.getInput();
+        govtName = (String)(government.getItemAt(government.getSelectedIndex()));
+      }
     }
     private static void createAndShowGUI() {
         //Create and set up the window.
