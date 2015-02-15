@@ -77,7 +77,7 @@ public class RandomWorldMenu extends JPanel
         
         //Overview Variable
         Overview stats = new Overview(crimeRateV, literacyV, popV, foodSupplyV, wealthV);
-        stats.budget = budgetV;
+        stats.budget = (int) budgetV;
         
         System.out.println(stats.budget + " " + stats.crimeRateV + " " + stats.happiness + " " + stats.hunger + " " + stats.populationV + " " + stats.taxes);
         return stats;

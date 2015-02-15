@@ -58,6 +58,9 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
     setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
   }
   public void actionPerformed(ActionEvent e){
+    if(e.getSource() == embargo){
+       
+      }
     budget.setText("Budget: " + stats.budget);
     happiness.setText("Happiness: " + stats.happiness);
     crimeRate.setText("Crime: " + stats.crimeRateV);

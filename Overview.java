@@ -3,8 +3,8 @@ import java.io.*;
 import java.lang.Math;
 public class Overview{
  
- double budget = 0, crimeRateV = 0, literacyV = 0;
- int happiness = 0, hunger = 0, populationV = 0, taxes = 0;
+ double crimeRateV = 0, literacyV = 0;
+ int happiness = 0, hunger = 0, populationV = 0, taxes = 0, budget = 0;
    
  public Overview(double crimeRate, double literacy, int pop, int foodSupply, double wealth){
   crimeRateV = crimeRate;

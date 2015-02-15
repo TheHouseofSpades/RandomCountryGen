@@ -60,9 +60,9 @@ public class RandomWorld{
   public int makeFoSupp(double w){
    return (int)((w/16768100)*100); 
   }
-  public double makeBudget(String g){
+  public int makeBudget(String g){
     int f = findGovNum(g);
-    return (23966871.42)*(Math.random()*f+1);
+    return (int) ((23966871.42)*(Math.random()*f+1));
   }   
 }
 
