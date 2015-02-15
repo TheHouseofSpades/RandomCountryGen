@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class MainScreen extends JPanel implements ItemListener {
+public class MainScreen extends JPanel implements ItemListener, ActionListener {
     //Overview stats = new Overview();
     double wealthV;
     int popV;
@@ -27,6 +27,7 @@ public class MainScreen extends JPanel implements ItemListener {
     JButton taxBreak = new JButton("Tax Break");
     JButton consultAssistant = new JButton("Consult an Assistant");
     JButton embargo = new JButton("Create Embargo");
+    JButton begin = new JButton("Begin");
     Overview stats;
     
     JLabel feed = new JLabel("You begin your reign.");
@@ -65,6 +66,12 @@ public class MainScreen extends JPanel implements ItemListener {
     actionPanel.add(taxBreak);
     actionPanel.add(consultAssistant);
     actionPanel.add(embargo);
+    actionPanel.add(begin);
+    begin.addActionListener(this);
+    embargo.addActionListener(this);
+    consultAssistant.addActionListener(this);
+    taxBreak.addActionListener(this);
+    holiday.addActionListener(this);
     
     JPanel feedPanel = new JPanel(new GridLayout(0, 1));
     feedPanel.add(feed);
@@ -73,7 +80,9 @@ public class MainScreen extends JPanel implements ItemListener {
     add(actionPanel, BorderLayout.PAGE_END);
     add(feedPanel, BorderLayout.LINE_END);
   }
-  
+  public void actionPerformed(ActionEvent e){
+    budget.setText("Pie");
+  }
   public void itemStateChanged(ItemEvent e){
     //...
    

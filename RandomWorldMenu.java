@@ -6,7 +6,7 @@ import javax.swing.*;
 
 
 public class RandomWorldMenu extends JPanel
-                          implements ItemListener {
+                          implements ItemListener, ActionListener {
     String govtName = "";
     Attributes wealth = new Attributes("Wealth");
     Attributes population = new Attributes("Population");
@@ -38,6 +38,7 @@ public class RandomWorldMenu extends JPanel
         fieldPanel.add(population.tBox);
         JPanel confirmPanel = new JPanel(new GridLayout(0, 1));
         confirmPanel.add(confirm);
+        confirm.addActionListener(this);
         
         add(comboPanel, BorderLayout.LINE_START);
         add(fieldPanel, BorderLayout.LINE_START);
@@ -46,14 +47,16 @@ public class RandomWorldMenu extends JPanel
         
         setBorder(BorderFactory.createEmptyBorder(250,100,250,100));
     }
-    public void itemStateChanged(ItemEvent e){
-      Object source = e.getItemSelectable();
-      if (source == confirm){
+   public void itemStateChanged(ItemEvent e){
+    
+   }
+    public void actionPerformed(ActionEvent e){
+        confirm.setVisible(false);
         wealth.getInput();
         population.getInput();
         govtName = (String)(government.getItemAt(government.getSelectedIndex()));
-      }
     }
+    
     private static void createAndShowGUI() {
         //Create and set up the window.
         JFrame frame = new JFrame("Random World Generator");
