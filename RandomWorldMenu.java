@@ -6,12 +6,12 @@ import javax.swing.*;
 
 public class RandomWorldMenu extends JPanel
                           implements ItemListener {
-    AttributeButtons wealth = new AttributeButtons("Wealth");
-    AttributeButtons population = new AttributeButtons("Population");
-    AttributeButtons water = new AttributeButtons("Water");
-    AttributeButtons urban = new AttributeButtons("Urban");
-    AttributeButtons life = new AttributeButtons("Life");
-    AttributeButtons literacy = new AttributeButtons("Literacy");
+    Attributes wealth = new Attributes("Wealth");
+    Attributes population = new Attributes("Population");
+    Attributes water = new Attributes("Water");
+    Attributes urban = new Attributes("Urban");
+    Attributes life = new Attributes("Life");
+    Attributes literacy = new Attributes("Literacy");
     
    public RandomWorldMenu() {
         super(new BorderLayout());
