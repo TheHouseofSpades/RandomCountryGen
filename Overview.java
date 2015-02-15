@@ -49,6 +49,10 @@ public class Overview{
    }
    return ("");
  }
+ public void embargo(int h, int b){
+  h -= Math.random()*19 + 1; 
+  b -= Math.random()*99 + 1;
+ }
  
  
 }
