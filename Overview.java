@@ -14,10 +14,6 @@ public class Overview{
   hunger = 100-foodSupply;
   taxes = 20;
  }
-  //public double makeBudget(String g){
-  //int f = RandomWorld.findGovNum(g);
-  //return (23966871.42)*(Math.random()*f+1);
-   //}   
   public double tax(int t){
    if(t>taxes){
     happiness -= Math.random()*9+1;

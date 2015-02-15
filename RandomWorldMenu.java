@@ -10,6 +10,7 @@ public class RandomWorldMenu extends JPanel
     Attributes population = new Attributes("Population");
     String[] govts = {"Anarchy", "Imperialist", "Communist", "Feudalism", "Monarchy", "Republic", "Democracy"};
     JComboBox government = new JComboBox(govts);
+    JButton confirm = new JButton("Confirm");
     
    public RandomWorldMenu() {
         super(new BorderLayout());
@@ -33,10 +34,14 @@ public class RandomWorldMenu extends JPanel
         JPanel fieldPanel = new JPanel(new GridLayout(0, 2));
         fieldPanel.add(wealth.tBox);
         fieldPanel.add(population.tBox);
+        JPanel confirmPanel = new JPanel(new GridLayout(0, 1));
+        confirmPanel.add(confirm);
         
         add(comboPanel, BorderLayout.LINE_START);
         add(fieldPanel, BorderLayout.LINE_START);
         add(checkPanel, BorderLayout.LINE_START);
+        add(confirm, BorderLayout.PAGE_END);
+        
         setBorder(BorderFactory.createEmptyBorder(250,100,250,100));
     }
     public void itemStateChanged(ItemEvent e){

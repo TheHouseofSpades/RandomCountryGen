@@ -5,7 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class MainScreen extends JPanel implements ItemListener {
-  //Declare overview class here
+    //Overview stats = new Overview();
     int x = 10;
     JLabel budget = new JLabel("Budget: " + x);
     JLabel crimeRate = new JLabel("Crime Rate ");
