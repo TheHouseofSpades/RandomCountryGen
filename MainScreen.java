@@ -13,7 +13,7 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
     JLabel hunger = new JLabel("Hunger ");
     JLabel population = new JLabel("Population ");
     
-    JButton holiday = new JButton("Delcare a Holiday");
+    JButton holiday = new JButton("Declare a Holiday");
     JButton taxBreak = new JButton("Tax Break");
     JButton consultAssistant = new JButton("Consult an Assistant");
     JButton embargo = new JButton("Create Embargo");
@@ -93,12 +93,16 @@ public class MainScreen extends JPanel implements ItemListener, ActionListener {
     if(e.getSource() == subAg){
      stats.subAgr(); 
     }
-    budget.setText("Budget: " + stats.budget);
-    happiness.setText("Happiness: " + stats.happiness);
+    budget.setText("Budget: " + stats.budget + " millions US$");
+    happiness.setText("Happiness: " + stats.happiness + "%");
     crimeRate.setText("Crime: " + stats.crimeRateV);
     hunger.setText("Hunger: " + stats.hunger);
-    literacy.setText("Literacy: " + stats.literacyV);
+    literacy.setText("Literacy: " + stats.literacyV + "%");
     population.setText("Population: " + stats.populationV);
+    if(stats.happiness < 25 || stats.budget < 0){
+     feed.setText("You have failed, a revolution against you has begun.");
+    }
+    
   
   }
   public void itemStateChanged(ItemEvent e){

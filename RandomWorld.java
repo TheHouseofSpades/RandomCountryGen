@@ -40,9 +40,8 @@ public class RandomWorld{
   return 0;
   }
   public double makeLiteracy(String g, double w){
-   int f = findGovNum(g);
    double d = ((w/16768100)*100)/2;
-   return d + d*(f/10)*15;
+   return d + d*((int)(Math.random()*1+1));
   }
   public double makeCriRate(double w, double l){
     double d = (w/16768100)/1.5;
@@ -62,7 +61,7 @@ public class RandomWorld{
   }
   public int makeBudget(String g){
     int f = findGovNum(g);
-    return (int) ((23966871.42)*(Math.random()*f+1));
+    return (int) ((3966871.42)*(Math.random()*f+1));
   }   
 }
 
