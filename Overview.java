@@ -43,25 +43,25 @@ public class Overview{
  }
  public void embargo(){
   happiness -= Math.random()*14 + 1; 
-  budget -= 500;
+  budget -= 50000;
   crimeRateV += Math.random()*4;
  }
  public void investEdu(){
   happiness += (int)Math.random()*14+1; 
   literacyV += Math.random()*19+1;
-  budget -= 2000;
+  budget -= 200000;
  }
  public void holiday(){
   happiness += 10;
-  budget -= 500;
+  budget -= 50000;
  }
  public void strPolFor(){
    crimeRateV -= (int)Math.random()*19+1;
-   budget -= 1000;
+   budget -= 100000;
  }
  public void subAgr(){
   hunger -= (int)(Math.random()*19+1);
-  budget -= 1000;
+  budget -= 100000;
  }
  
 }

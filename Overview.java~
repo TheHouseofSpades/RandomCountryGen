@@ -3,8 +3,8 @@ import java.io.*;
 import java.lang.Math;
 public class Overview{
  
- double budget = 0, crimeRateV = 0, literacyV = 0;
- int happiness = 0, hunger = 0, populationV = 0, taxes = 0;
+ double crimeRateV = 0, literacyV = 0;
+ int happiness = 0, hunger = 0, populationV = 0, taxes = 0, budget = 0;
    
  public Overview(double crimeRate, double literacy, int pop, int foodSupply, double wealth){
   crimeRateV = crimeRate;
@@ -14,25 +14,13 @@ public class Overview{
   hunger = 100-foodSupply;
   taxes = 20;
  }
-  //public double makeBudget(String g){
-  //int f = RandomWorld.findGovNum(g);
-  //return (23966871.42)*(Math.random()*f+1);
-   //}   
-  public double tax(int t){
-   if(t>taxes){
-    happiness -= Math.random()*9+1;
-    taxes = t;
-   }
-   else if(t<taxes){
-     happiness += Math.random()*9+1;
-     taxes = t;
-   }
-   return budget += (budget*(t/100)); 
+  public double tax(){
+   return budget += (budget*(taxes/100)); 
  }
  public void taxBreak(){
    happiness += 10;
  }
- public String consAssist(int h, int g, int c){
+ public String consAssist(int h, int g, double c){
    if(h<25){
     return("Your people may revolt soon. You must do everything in your power to make them happy."); 
    }
@@ -53,7 +41,28 @@ public class Overview{
    }
    return ("");
  }
- 
+ public void embargo(){
+  happiness -= Math.random()*14 + 1; 
+  budget -= 500;
+  crimeRateV += Math.random()*4;
+ }
+ public void investEdu(){
+  happiness += (int)Math.random()*14+1; 
+  literacyV += Math.random()*19+1;
+  budget -= 2000;
+ }
+ public void holiday(){
+  happiness += 10;
+  budget -= 500;
+ }
+ public void strPolFor(){
+   crimeRateV -= (int)Math.random()*19+1;
+   budget -= 1000;
+ }
+ public void subAgr(){
+  hunger -= (int)(Math.random()*19+1);
+  budget -= 1000;
+ }
  
 }
 
